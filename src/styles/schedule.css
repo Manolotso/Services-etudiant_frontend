@@ -1,0 +1,135 @@
+/* Schedule — Indigo theme */
+.schedule-page { padding: 0; }
+
+.schedule-loading {
+  display: flex; align-items: center; justify-content: center; gap: .75rem;
+  min-height: 400px; color: var(--text-secondary);
+}
+.spinner {
+  width: 24px; height: 24px; border: 3px solid var(--gray-200);
+  border-top-color: var(--primary-color); border-radius: 50%;
+  animation: spin .6s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Header */
+.schedule-header {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;
+}
+.schedule-title { font-size: 1.125rem; font-weight: 600; color: var(--text-primary); margin: 0; }
+.schedule-subtitle { font-size: .75rem; color: var(--text-secondary); margin: .25rem 0 0; }
+
+.view-tabs { display: flex; gap: .25rem; background: var(--gray-100); border-radius: .5rem; padding: .25rem; }
+.view-tab {
+  display: flex; align-items: center; gap: .375rem;
+  padding: .375rem .75rem; border-radius: .375rem; font-size: .8125rem;
+  font-weight: 500; color: var(--text-secondary); background: none; border: none;
+  cursor: pointer; transition: all .2s; font-family: inherit;
+}
+.view-tab:hover { color: var(--text-primary); }
+.view-tab.active { background: var(--white); color: var(--primary-color); box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+
+/* ===== WEEK ===== */
+.week-wrapper {
+  background: var(--white); border: 1px solid var(--border-color);
+  border-radius: .75rem; overflow-x: auto;
+}
+.week-grid { display: grid; grid-template-columns: 60px repeat(6,1fr); min-width: 700px; }
+
+.time-col-header, .day-col-header {
+  height: 44px; display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border-color); font-size: .75rem; font-weight: 600; color: var(--text-secondary);
+}
+.day-col-header { background: var(--gray-50); }
+.day-short { text-transform: uppercase; letter-spacing: .04em; }
+
+.time-col { border-right: 1px solid var(--border-color); }
+.time-label {
+  height: 70px; display: flex; align-items: flex-start; justify-content: center;
+  padding-top: .25rem; font-size: .6875rem; color: var(--text-muted);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.day-col { border-right: 1px solid var(--gray-100); }
+.day-col:last-child { border-right: none; }
+.day-slots { position: relative; }
+.hour-slot { height: 70px; border-bottom: 1px solid var(--gray-100); }
+
+.event-block {
+  position: absolute; left: 4px; right: 4px; border-radius: .375rem;
+  padding: .375rem .5rem; overflow: hidden; cursor: pointer;
+  display: flex; flex-direction: column; gap: 1px; transition: transform .15s;
+}
+.event-block:hover { transform: scale(1.02); z-index: 2; }
+.ev-course { font-size: .6875rem; font-weight: 600; line-height: 1.2; }
+.ev-meta { font-size: .5625rem; opacity: .85; }
+
+/* ===== DAY ===== */
+.day-view { max-width: 600px; }
+.day-nav { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+.day-nav-title { font-size: 1rem; font-weight: 600; color: var(--text-primary); margin: 0; }
+.nav-btn {
+  width: 32px; height: 32px; border-radius: .5rem; border: 1px solid var(--border-color);
+  background: var(--white); display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-secondary); transition: all .2s;
+}
+.nav-btn:hover { background: var(--gray-50); }
+.no-events { color: var(--text-muted); font-size: .875rem; }
+
+.day-cards { display: flex; flex-direction: column; gap: .75rem; }
+.day-card {
+  display: flex; background: var(--white); border: 1px solid var(--border-color);
+  border-radius: .75rem; overflow: hidden; transition: box-shadow .2s;
+}
+.day-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,.06); }
+.day-card-bar { width: 4px; flex-shrink: 0; }
+.day-card-body { padding: 1rem 1.25rem; flex: 1; }
+.day-card-title { font-size: .9375rem; font-weight: 600; color: var(--text-primary); margin: 0 0 .5rem; }
+.day-card-infos { display: flex; flex-wrap: wrap; gap: .75rem; }
+.day-card-infos span {
+  display: flex; align-items: center; gap: .25rem;
+  font-size: .75rem; color: var(--text-secondary);
+}
+
+/* ===== LIST ===== */
+.list-view { display: flex; flex-direction: column; gap: 1.5rem; }
+.list-day-group {}
+.list-day-title { font-size: .875rem; font-weight: 600; color: var(--text-primary); margin: 0 0 .5rem; }
+.list-table {
+  width: 100%; border-collapse: collapse; background: var(--white);
+  border: 1px solid var(--border-color); border-radius: .75rem; overflow: hidden;
+  font-size: .8125rem;
+}
+.list-table th {
+  text-align: left; padding: .625rem 1rem; font-weight: 500;
+  color: var(--text-secondary); background: var(--gray-50); border-bottom: 1px solid var(--border-color);
+}
+.list-table td { padding: .625rem 1rem; border-bottom: 1px solid var(--gray-100); }
+.list-table tr:last-child td { border-bottom: none; }
+.list-table tr:hover td { background: var(--gray-50); }
+.list-course { display: flex; align-items: center; gap: .5rem; font-weight: 500; color: var(--text-primary); }
+.list-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.list-teacher { color: var(--text-secondary); }
+.list-time { color: var(--text-secondary); white-space: nowrap; }
+.list-room { color: var(--text-secondary); }
+
+/* ===== COLORS ===== */
+.color-primary { background: var(--accent-bg); color: var(--primary-color); }
+.color-primary.day-card-bar, .list-dot.color-primary { background: var(--primary-color); }
+.color-green { background: #ecfdf5; color: #059669; }
+.color-green.day-card-bar, .list-dot.color-green { background: #059669; }
+.color-orange { background: #fff7ed; color: #ea580c; }
+.color-orange.day-card-bar, .list-dot.color-orange { background: #ea580c; }
+.color-purple { background: #f5f3ff; color: #7c3aed; }
+.color-purple.day-card-bar, .list-dot.color-purple { background: #7c3aed; }
+.color-teal { background: #f0fdfa; color: #0d9488; }
+.color-teal.day-card-bar, .list-dot.color-teal { background: #0d9488; }
+.color-rose { background: #fff1f2; color: #e11d48; }
+.color-rose.day-card-bar, .list-dot.color-rose { background: #e11d48; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .schedule-header { flex-direction: column; align-items: flex-start; }
+  .list-table th:nth-child(2), .list-table td:nth-child(2) { display: none; }
+}
