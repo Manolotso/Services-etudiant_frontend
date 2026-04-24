@@ -20,7 +20,7 @@ export default function DashboardLayout() {
 
   const navItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
-    { icon: Users, label: 'Étudiants', path: '/dashboard/students' },
+    { icon: Users, label: 'Entraide étudiants', path: '/dashboard/students' },
     { icon: BookOpen, label: 'Cours', path: '/dashboard/courses' },
     { icon: Calendar, label: 'Emploi du temps', path: '/dashboard/schedule' },
     { icon: Briefcase, label: 'Jobs', path: '/dashboard/jobs' },
