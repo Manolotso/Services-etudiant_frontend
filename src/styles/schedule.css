@@ -1,5 +1,10 @@
 /* Schedule — Indigo theme */
-.schedule-page { padding: 0; }
+.schedule-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  /* Pas besoin de hauteur ici, le parent (dashboard-content) gère le scroll */
+}
 
 .schedule-loading {
   display: flex; align-items: center; justify-content: center; gap: .75rem;

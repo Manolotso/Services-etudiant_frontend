@@ -22,6 +22,7 @@ export default function Schedule() {
   useEffect(() => {
     getSchedule()
       .then(res => {
+        console.log("SCHEDULE API RESPONSE:", res.data)
         const mapped = (res.data || []).map((ev, i) => ({
           id: ev.id,
           course: ev.course_name || ev.course?.name || ev.course,

@@ -1,0 +1,183 @@
+/* src/styles/admin-jobs.css */
+.adjob-page { padding: 24px; max-width: 1200px; margin: 0 auto; }
+
+/* Header */
+.adjob-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 16px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.adjob-title { font-size: 20px; font-weight: 600; color: #1e1b4b; margin: 0; }
+.adjob-subtitle { font-size: 13px; color: #6b7280; margin: 4px 0 0; }
+
+/* Buttons */
+.adjob-btn-primary {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #4f46e5; color: white; border: none;
+  padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: background .15s;
+}
+.adjob-btn-primary:hover { background: #4338ca; }
+.adjob-btn-primary:disabled { opacity: .6; cursor: not-allowed; }
+
+.adjob-btn-ghost {
+  background: transparent; color: #4b5563; border: 1px solid #e5e7eb;
+  padding: 8px 14px; border-radius: 8px; font-size: 13px; cursor: pointer;
+}
+.adjob-btn-ghost:hover { background: #f9fafb; }
+
+.adjob-btn-danger {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #dc2626; color: white; border: none;
+  padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer;
+}
+.adjob-btn-danger:hover { background: #b91c1c; }
+
+/* Toolbar */
+.adjob-toolbar {
+  display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; align-items: center;
+}
+.adjob-search {
+  display: flex; align-items: center; gap: 8px;
+  background: white; border: 1px solid #e5e7eb; border-radius: 8px;
+  padding: 0 12px; flex: 1; min-width: 240px;
+}
+.adjob-search input {
+  border: none; outline: none; padding: 8px 0; font-size: 13px;
+  flex: 1; background: transparent;
+}
+.adjob-filters { display: flex; gap: 6px; flex-wrap: wrap; }
+.filter-btn {
+  background: white; border: 1px solid #e5e7eb; color: #4b5563;
+  padding: 6px 12px; border-radius: 6px; font-size: 12px; cursor: pointer;
+  transition: all .15s;
+}
+.filter-btn:hover { border-color: #4f46e5; color: #4f46e5; }
+.filter-btn.active { background: #4f46e5; color: white; border-color: #4f46e5; }
+
+/* Table */
+.adjob-table-wrap {
+  background: white; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden;
+}
+.adjob-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.adjob-table thead { background: #f9fafb; }
+.adjob-table th {
+  text-align: left; padding: 10px 14px; font-weight: 600;
+  color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: .03em;
+  border-bottom: 1px solid #e5e7eb;
+}
+.adjob-table .th-actions { text-align: right; }
+.adjob-table td { padding: 12px 14px; border-bottom: 1px solid #f3f4f6; color: #1f2937; vertical-align: middle; }
+.adjob-table tbody tr:last-child td { border-bottom: none; }
+.adjob-table tbody tr:hover { background: #fafafa; }
+
+.cell-title { display: flex; flex-direction: column; gap: 4px; }
+.title-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-weight: 500; color: #1e1b4b; text-decoration: none;
+}
+.title-link:hover { color: #4f46e5; }
+.title-link svg { color: #9ca3af; }
+.contract-tag {
+  display: inline-block; align-self: flex-start;
+  background: #f3f4f6; color: #6b7280;
+  padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 500;
+}
+
+.cell-muted { display: inline-flex; align-items: center; gap: 5px; color: #6b7280; }
+.company-link { color: #6b7280; text-decoration: none; }
+.company-link:hover { color: #4f46e5; text-decoration: underline; }
+
+.type-badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 11px; font-weight: 500;
+}
+.type-badge.color-primary { background: #eef2ff; color: #4f46e5; }
+.type-badge.color-green { background: #ecfdf5; color: #059669; }
+.type-badge.color-orange { background: #fff7ed; color: #ea580c; }
+
+.row-actions { display: flex; gap: 4px; justify-content: flex-end; }
+.icon-btn {
+  background: transparent; border: 1px solid transparent; color: #6b7280;
+  width: 28px; height: 28px; border-radius: 6px;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all .15s;
+}
+.icon-btn:hover { background: #f3f4f6; color: #4f46e5; border-color: #e5e7eb; }
+.icon-btn.danger:hover { background: #fef2f2; color: #dc2626; border-color: #fecaca; }
+
+/* Empty */
+.adjob-empty {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 60px 20px; text-align: center; color: #6b7280;
+  background: white; border: 1px dashed #e5e7eb; border-radius: 10px;
+}
+.adjob-empty svg { color: #c7d2fe; margin-bottom: 12px; }
+.adjob-empty h3 { font-size: 15px; color: #1f2937; margin: 0 0 4px; }
+.adjob-empty p { font-size: 13px; margin: 0; }
+
+/* Loading */
+.adjob-loading {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 60px; color: #6b7280; font-size: 13px;
+}
+.spinner {
+  width: 18px; height: 18px; border: 2px solid #e5e7eb; border-top-color: #4f46e5;
+  border-radius: 50%; animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Modal */
+.adjob-modal-overlay {
+  position: fixed; inset: 0; background: rgba(15, 23, 42, .5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 50; padding: 16px; backdrop-filter: blur(2px);
+}
+.adjob-modal {
+  background: white; border-radius: 12px; width: 100%; max-width: 560px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.2); overflow: hidden;
+  animation: modalIn .15s ease-out;
+  max-height: 90vh; display: flex; flex-direction: column;
+}
+.adjob-modal.small { max-width: 380px; }
+@keyframes modalIn { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
+
+.modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 20px; border-bottom: 1px solid #f3f4f6;
+}
+.modal-header h3 { margin: 0; font-size: 15px; font-weight: 600; color: #1e1b4b; }
+
+.modal-body {
+  padding: 20px; display: flex; flex-direction: column; gap: 14px;
+  overflow-y: auto;
+}
+
+.form-error {
+  background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca;
+  padding: 8px 12px; border-radius: 7px; font-size: 12px;
+}
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 12px; font-weight: 500; color: #4b5563; }
+.form-group input, .form-group select, .form-group textarea {
+  border: 1px solid #e5e7eb; border-radius: 7px; padding: 8px 10px;
+  font-size: 13px; outline: none; background: white; color: #1f2937;
+  transition: border-color .15s; font-family: inherit; resize: vertical;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: #4f46e5;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.modal-footer {
+  display: flex; justify-content: flex-end; gap: 8px;
+  padding-top: 8px; margin-top: 4px;
+}
+.confirm-text { font-size: 13px; color: #6b7280; margin: 0 0 16px; }
+
+@media (max-width: 640px) {
+  .adjob-page { padding: 16px; }
+  .form-row { grid-template-columns: 1fr; }
+  .adjob-table th:nth-child(4), .adjob-table td:nth-child(4),
+  .adjob-table th:nth-child(5), .adjob-table td:nth-child(5) { display: none; }
+}

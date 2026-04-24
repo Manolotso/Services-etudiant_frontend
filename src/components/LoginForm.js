@@ -39,40 +39,42 @@ export default function LoginForm() {
   // ==========================================
   // 2. CONNEXION (CORRIGÉE)
   // ==========================================
+
   const handleLogin = async () => {
-    try {
+  try {
+    const res = await api.post("token/", {
+      email,
+      password,
+    })
 
-      const res = await api.post("token/", {
-        email,
-        password,
-      })
+    localStorage.setItem("access", res.data.access)
+    localStorage.setItem("refresh", res.data.refresh)
 
-      // stock JWT
-      localStorage.setItem("access", res.data.access)
-      localStorage.setItem("refresh", res.data.refresh)
+    const mustChange = res.data.must_change_password
+    const hasUsername = res.data.has_username ?? false
+    const role = res.data.role
 
-      // flags backend
-      const mustChange = res.data.must_change_password
-      const hasUsername = res.data.has_username ?? false
-      const role = res.data.role
+    // 🔥 DEBUG
+    console.log("LOGIN RESPONSE :", res.data)
+    console.log("ROLE =", role)
+    console.log("mustChange =", mustChange)
+    console.log("hasUsername =", hasUsername)
 
-      // ================= ROUTING =================
-      if (mustChange || !hasUsername) {
-        navigate("/complete-profile")
-
+    if (mustChange || !hasUsername) {
+      navigate("/complete-profile")
+    } else {
+      if (role === "admin") {
+        navigate("/admin")
       } else {
-        if (role === "admin") {
-          navigate("/dashboard-admin")
-        } else {
-          navigate("/dashboard")
-        }
+        navigate("/dashboard")
       }
-
-    } catch (err) {
-      console.error(err)
-      alert("Erreur login : email ou mot de passe incorrect.")
     }
+
+  } catch (err) {
+    console.error(err)
+    alert("Erreur login : email ou mot de passe incorrect.")
   }
+}
 
   // ==========================================
   // 3. CHANGEMENT DE MOT DE PASSE (optionnel si gardé)

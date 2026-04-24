@@ -21,10 +21,10 @@ export default function DashboardLayout() {
   const navItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
     { icon: Users, label: 'Entraide étudiants', path: '/dashboard/students' },
-    { icon: BookOpen, label: 'Cours', path: '/dashboard/courses' },
+    //{ icon: BookOpen, label: 'Cours', path: '/dashboard/courses' },
     { icon: Calendar, label: 'Emploi du temps', path: '/dashboard/schedule' },
     { icon: Briefcase, label: 'Jobs', path: '/dashboard/jobs' },
-    { icon: Settings, label: 'Paramètres', path: '/dashboard/settings' },
+    //{ icon: Settings, label: 'Paramètres', path: '/dashboard/settings' },
   ]
 
   const handleLogout = () => {

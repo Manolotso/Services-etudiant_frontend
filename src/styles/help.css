@@ -631,3 +631,35 @@
   .help-card { padding: 14px; }
   .help-detail-title { font-size: 18px; }
 }
+
+/* ===== À AJOUTER dans help.css ===== */
+
+/* Badge Admin affiché à côté du nom */
+.help-admin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 20px;
+  margin-left: 6px;
+  vertical-align: middle;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+/* Avatar violet pour l'admin */
+.help-avatar.admin-avatar {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+}
+
+/* Bordure gauche distinctive sur les réponses admin */
+.help-response.admin-response {
+  border-left: 3px solid #6366f1;
+  background: linear-gradient(to right, #f5f3ff 0%, transparent 80%);
+}
+

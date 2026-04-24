@@ -1,0 +1,188 @@
+/* src/styles/admin-schedule.css */
+.adsch-page { padding: 24px; max-width: 1200px; margin: 0 auto; }
+
+/* Header */
+.adsch-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 16px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.adsch-title { font-size: 20px; font-weight: 600; color: #1e1b4b; margin: 0; }
+.adsch-subtitle { font-size: 13px; color: #6b7280; margin: 4px 0 0; }
+
+/* Buttons */
+.adsch-btn-primary {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #4f46e5; color: white; border: none;
+  padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: background .15s;
+}
+.adsch-btn-primary:hover { background: #4338ca; }
+.adsch-btn-primary:disabled { opacity: .6; cursor: not-allowed; }
+
+.adsch-btn-ghost {
+  background: transparent; color: #4b5563; border: 1px solid #e5e7eb;
+  padding: 8px 14px; border-radius: 8px; font-size: 13px; cursor: pointer;
+}
+.adsch-btn-ghost:hover { background: #f9fafb; }
+
+.adsch-btn-danger {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #dc2626; color: white; border: none;
+  padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer;
+}
+.adsch-btn-danger:hover { background: #b91c1c; }
+
+/* Toolbar */
+.adsch-toolbar {
+  display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; align-items: center;
+}
+.adsch-search {
+  display: flex; align-items: center; gap: 8px;
+  background: white; border: 1px solid #e5e7eb; border-radius: 8px;
+  padding: 0 12px; flex: 1; min-width: 240px;
+}
+.adsch-search input {
+  border: none; outline: none; padding: 8px 0; font-size: 13px;
+  flex: 1; background: transparent;
+}
+.adsch-filters { display: flex; gap: 6px; flex-wrap: wrap; }
+.filter-btn {
+  background: white; border: 1px solid #e5e7eb; color: #4b5563;
+  padding: 6px 12px; border-radius: 6px; font-size: 12px; cursor: pointer;
+  transition: all .15s;
+}
+.filter-btn:hover { border-color: #4f46e5; color: #4f46e5; }
+.filter-btn.active { background: #4f46e5; color: white; border-color: #4f46e5; }
+
+/* Table */
+.adsch-table-wrap {
+  background: white; border: 1px solid #e5e7eb; border-radius: 10px;
+  overflow: hidden;
+}
+.adsch-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.adsch-table thead { background: #f9fafb; }
+.adsch-table th {
+  text-align: left; padding: 10px 14px; font-weight: 600;
+  color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: .03em;
+  border-bottom: 1px solid #e5e7eb;
+}
+.adsch-table .th-actions { text-align: right; }
+.adsch-table td { padding: 12px 14px; border-bottom: 1px solid #f3f4f6; color: #1f2937; }
+.adsch-table tbody tr:last-child td { border-bottom: none; }
+.adsch-table tbody tr:hover { background: #fafafa; }
+
+.cell-course { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; color: #1e1b4b; }
+.cell-course svg { color: #4f46e5; }
+.cell-muted { display: inline-flex; align-items: center; gap: 5px; color: #6b7280; }
+
+.day-badge {
+  display: inline-block; background: #eef2ff; color: #4f46e5;
+  padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 500;
+}
+
+.row-actions { display: flex; gap: 4px; justify-content: flex-end; }
+.icon-btn {
+  background: transparent; border: 1px solid transparent; color: #6b7280;
+  width: 28px; height: 28px; border-radius: 6px;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all .15s;
+}
+.icon-btn:hover { background: #f3f4f6; color: #4f46e5; border-color: #e5e7eb; }
+.icon-btn.danger:hover { background: #fef2f2; color: #dc2626; border-color: #fecaca; }
+
+/* Empty */
+.adsch-empty {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 60px 20px; text-align: center; color: #6b7280;
+  background: white; border: 1px dashed #e5e7eb; border-radius: 10px;
+}
+.adsch-empty svg { color: #c7d2fe; margin-bottom: 12px; }
+.adsch-empty h3 { font-size: 15px; color: #1f2937; margin: 0 0 4px; }
+.adsch-empty p { font-size: 13px; margin: 0; }
+
+/* Loading */
+.adsch-loading {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 60px; color: #6b7280; font-size: 13px;
+}
+.spinner {
+  width: 18px; height: 18px; border: 2px solid #e5e7eb; border-top-color: #4f46e5;
+  border-radius: 50%; animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Modal */
+.adsch-modal-overlay {
+  position: fixed; inset: 0; background: rgba(15, 23, 42, .5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 50; padding: 16px; backdrop-filter: blur(2px);
+}
+.adsch-modal {
+  background: white; border-radius: 12px; width: 100%; max-width: 480px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.2); overflow: hidden;
+  animation: modalIn .15s ease-out;
+}
+.adsch-modal.small { max-width: 380px; }
+@keyframes modalIn { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
+
+.modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 20px; border-bottom: 1px solid #f3f4f6;
+}
+.modal-header h3 { margin: 0; font-size: 15px; font-weight: 600; color: #1e1b4b; }
+.modal-body { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 12px; font-weight: 500; color: #4b5563; }
+.form-group input, .form-group select {
+  border: 1px solid #e5e7eb; border-radius: 7px; padding: 8px 10px;
+  font-size: 13px; outline: none; background: white; color: #1f2937;
+  transition: border-color .15s;
+}
+.form-group input:focus, .form-group select:focus { border-color: #4f46e5; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.modal-footer {
+  display: flex; justify-content: flex-end; gap: 8px;
+  padding-top: 8px; margin-top: 4px;
+}
+.confirm-text { font-size: 13px; color: #6b7280; margin: 0 0 16px; }
+
+@media (max-width: 640px) {
+  .adsch-page { padding: 16px; }
+  .adsch-table th:nth-child(2), .adsch-table td:nth-child(2) { display: none; }
+}
+
+/* Permettre au modal de s'adapter à la hauteur de l'écran */
+.adsch-modal {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh; /* 90% de la hauteur de l'écran maximum */
+  display: flex;
+  flex-direction: column; /* Important pour séparer header/body/footer */
+  box-shadow: 0 20px 50px rgba(0,0,0,.2);
+  overflow: hidden;
+  animation: modalIn .15s ease-out;
+}
+
+/* Rendre le corps du formulaire scrollable */
+.modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto; /* Active le scroll vertical si ça dépasse */
+  flex: 1; /* Prend l'espace disponible */
+}
+
+/* Fixer le footer en bas du modal */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 20px;
+  border-top: 1px solid #f3f4f6; /* Ligne de séparation pour plus de clarté */
+  background: white;
+}
